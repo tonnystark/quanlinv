@@ -108,9 +108,9 @@ namespace QuanLiNhanSu
                 {
                     // tìm lastIndex
                     lastIndex = dgvDanhSach.CurrentRow.Index;
-                    LoadPhongBan();                  
+                    LoadPhongBan();
                     SetFocusRow(lastIndex);
-                    MessageBox.Show("Sửa thành công");                    
+                    MessageBox.Show("Sửa thành công");
                 }
                 else
                     MessageBox.Show("Sửa thất bại");
@@ -200,7 +200,7 @@ namespace QuanLiNhanSu
 
         void SetFocusRow(int index)
         {
-        
+
             if (index != -1)
                 dgvDanhSach.Rows[index].Selected = true;
         }

@@ -1,15 +1,15 @@
-﻿using System;
+﻿using QuanLiNhanSu.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QuanLiNhanSu.DTO;
 
 namespace QuanLiNhanSu.DAO
 {
-    public class PhongBanDAO
+    public class HopDongDAO
     {
         // sql Connect
         static SqlConnection con;
@@ -20,12 +20,12 @@ namespace QuanLiNhanSu.DAO
         /// Trả ra danh sách phòng ban
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetPhongBan()
+        public static DataTable GetHopDong()
         {
             using (con = new SqlConnection(strCon))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("spGetPhongBan", con);
+                SqlCommand cmd = new SqlCommand("spGetHopDong", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 DataTable dt = DataProvider.GetDataTable(cmd, con);
@@ -34,47 +34,26 @@ namespace QuanLiNhanSu.DAO
         }
 
         /// <summary>
-        /// Lấy ra tên phòng ban
+        /// Thêm 1 hợp đồng, thêm được trả về True
         /// </summary>
-        /// <param name="maPB"></param>
+        /// <param name="hd"></param>
         /// <returns></returns>
-        public static string GetTenPhongBanByMaPB(string maPB = "null")
+        public static bool AddHopDong(HopDongDTO hd)
         {
             using (con = new SqlConnection(strCon))
             {
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("spGetTenPhongByID", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@MaPB", maPB));
-                    return DataProvider.ExecuteScalar(cmd);
-                }
-                catch
-                {
-                    return "";
-                }
-            }
-        }
-
-        /// <summary>
-        /// Thêm 1 phòng ban, thêm được trả về True
-        /// </summary>
-        /// <param name="pb"></param>
-        /// <returns></returns>
-        public static bool AddPhongBan(PhongBanDTO pb)
-        {
-            using (con = new SqlConnection(strCon))
-            {
-                try
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand("spAddPhongBan", con);
+                    SqlCommand cmd = new SqlCommand("spAddHopDong", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    SqlParameter[] arrParams =  { new SqlParameter("@MaPB", pb.MaPB),
-                                                                    new SqlParameter("@TenPB", pb.TenPB),
-                                                                    new SqlParameter("@DiaChi", pb.DiaChi)
+                    SqlParameter[] arrParams =  { new SqlParameter("@MaHD", hd.MaHD),
+                                                                    new SqlParameter("@MaNV", hd.MaNV),
+                                                                    new SqlParameter("@LoaiHD", hd.LoaiHD),
+                                                                     new SqlParameter("@NgayBD", hd.NgayBD),
+                                                                      new SqlParameter("@NgayKT", hd.NgayKT),
+                                                                       new SqlParameter("@MoTa", hd.MoTa)
                                                 };
                     cmd.Parameters.AddRange(arrParams);
                     return DataProvider.ExecuteNonQuery(cmd) > 0;
@@ -87,23 +66,26 @@ namespace QuanLiNhanSu.DAO
         }
 
         /// <summary>
-        /// Update phòng ban
+        /// Update hợp đồng
         /// </summary>
-        /// <param name="pb"></param>
+        /// <param name="hd"></param>
         /// <returns></returns>
-        public static bool UpdatePhongBan(PhongBanDTO pb)
+        public static bool UpdateHopDong(HopDongDTO hd)
         {
             using (con = new SqlConnection(strCon))
             {
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("spUpdatePhongBan", con);
+                    SqlCommand cmd = new SqlCommand("spUpdateHopDong", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    SqlParameter[] arrParams =  { new SqlParameter("@MaPB", pb.MaPB),
-                                                                    new SqlParameter("@TenPB", pb.TenPB),
-                                                                    new SqlParameter("@DiaChi", pb.DiaChi)
+                    SqlParameter[] arrParams =  { new SqlParameter("@MaHD", hd.MaHD),
+                                                                    new SqlParameter("@MaNV", hd.MaNV),
+                                                                    new SqlParameter("@LoaiHD", hd.LoaiHD),
+                                                                     new SqlParameter("@NgayBD", hd.NgayBD),
+                                                                      new SqlParameter("@NgayKT", hd.NgayKT),
+                                                                       new SqlParameter("@MoTa", hd.MoTa)
                                                 };
                     cmd.Parameters.AddRange(arrParams);
 
@@ -117,20 +99,20 @@ namespace QuanLiNhanSu.DAO
         }
 
         /// <summary>
-        /// Xóa 1 phòng ban
+        /// Xóa hợp đồng
         /// </summary>
         /// <param name="ma"></param>
         /// <returns></returns>
-        public static bool DeletePhongBan(string ma)
+        public static bool DeleteHopDong(string ma)
         {
             using (con = new SqlConnection(strCon))
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("spDeletePhongBan", con);
+                    SqlCommand cmd = new SqlCommand("spDeleteHopDong", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
-                    cmd.Parameters.Add(new SqlParameter("@MaPB", ma));
+                    cmd.Parameters.Add(new SqlParameter("@MaHD", ma));
 
                     return DataProvider.ExecuteNonQuery(cmd) > 0;
                 }
@@ -140,6 +122,5 @@ namespace QuanLiNhanSu.DAO
                 }
             }
         }
-
     }
 }

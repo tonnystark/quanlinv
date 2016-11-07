@@ -69,6 +69,8 @@ CREATE TABLE HOPDONG
 	PRIMARY KEY(MaHD)
 )
 
+ALTER TABLE HOPDONG ADD MoTa nvarchar(50)
+
 CREATE TABLE USERS
 (
 	ID int identity primary key,
@@ -180,13 +182,7 @@ spAddNhanVien 'nv009', 'TEST', '05/11/1996', 'HCM', 'NAM', 'CV09'
 
 
 
--- Get chuyên môn
-CREATE PROC spGetChuyenMon
-AS
-BEGIN
-Select MaCM, TenCM
-from CHUYENMON
-END
+
 
 -- Get chức vụ
 CREATE PROC spGetChucVu
@@ -334,7 +330,94 @@ begin
 end
 
 
+---chuyên môn
+-- Get chuyên môn
+CREATE PROC spGetChuyenMon
+AS
+BEGIN
+Select MaCM, TenCM, TrinhDo
+from CHUYENMON
+END
 
+-- Add Chuyên môn
+ALTER PROC spAddChuyenMon --'CM007', 'TEST', 'TEST'
+@MaCM char(5),
+@TenCM nvarchar(50),
+@TrinhDo nvarchar(50) = null
+as
+begin
+	INSERT INTO CHUYENMON
+	Values(@MaCM, @TenCM, @TrinhDo)
+end
+
+
+-- Update Chuyên môn
+ALTER PROC spUpdateChuyenMon  --'CM007', 'TEST', 'đh'
+@MaCM char(5),
+@TenCM nvarchar(50),
+@TrinhDo nvarchar(50) = null
+as
+begin
+	UPDATE CHUYENMON
+	Set TenCM = @TenCM, TrinhDo = @TrinhDo
+	Where MaCM = @MaCM
+end
+
+-- Delete chuyên môn
+CREATE PROC spDeleteChuyenMon --'cm007'
+@MaCM char(5)
+as
+begin
+	Delete from CHUYENMON	
+	Where MaCM = @MaCM
+end
+
+
+--GET HỢP ĐỒNG
+
+CREATE PROC spGetHopDong
+as
+begin
+	Select * from HOPDONG
+end
+
+-- Tạo hợp đồng
+ALTER PROC spAddHopDong --'HD008', 'NV02', N'Ngắn hạn', '01/01/2016'
+@MaHD char(5),
+@MaNV char(5),
+@LoaiHD nvarchar(20),
+@NgayBD datetime = null,
+@NgayKT datetime = null,
+@MoTa nvarchar(50) = null
+as
+begin
+INSERT INTO HOPDONG 
+Values(@MaHD, @MaNV, @LoaiHD, @NgayBD, @NgayKT, @MoTa)
+end
+
+-- Update Hợp đồng
+CREATE PROC spUpdateHopDong --'HD007', 'NV02', N'Ngắn hạn', '01/01/2016', null,N'test hợp đồng'
+@MaHD char(5),
+@MaNV char(5),
+@LoaiHD nvarchar(20),
+@NgayBD datetime = null,
+@NgayKT datetime = null,
+@MoTa nvarchar(50) = null
+as
+begin
+UPDATE HOPDONG 
+SET MaNV = @MaNV, LoaiHD = @LoaiHD, NgayBD = @NgayBD, NgayKT = @NgayKT, MoTa = @MoTa
+Where MaHD = @MaHD
+end
+
+-- Delete hợp đồng
+CREATE PROC spDeleteHopDong 'HD008'
+@MaHD char(5)
+as
+begin
+	Delete from HOPDONG
+	Where MaHD = @MaHD
+end
 
 Select * from PHONGBAN
 Select * from CHUYENMON

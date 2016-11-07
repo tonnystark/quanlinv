@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using QuanLiNhanSu.BUS;
 
 namespace QuanLiNhanSu
 {
@@ -21,6 +22,11 @@ namespace QuanLiNhanSu
         private void frmHopDong_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Dispose();
+        }
+        protected override void OnLoad()
+        {
+            DataTable dt =  HopDong_BUS.GetHopDong();
+            dgvDanhSach.DataSource = dt;
         }
     }
 }

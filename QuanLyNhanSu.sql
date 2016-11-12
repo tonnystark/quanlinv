@@ -1,8 +1,4 @@
 ﻿
-CREATE DATABASE DETAI_QLNHANSU
-GO
-
-
 USE DETAI_QLNHANSU
 GO
 
@@ -411,13 +407,22 @@ Where MaHD = @MaHD
 end
 
 -- Delete hợp đồng
-CREATE PROC spDeleteHopDong 'HD008'
+CREATE PROC spDeleteHopDong -- 'HD008'
 @MaHD char(5)
 as
 begin
 	Delete from HOPDONG
 	Where MaHD = @MaHD
 end
+
+--Get all manv
+CREATE PROC spGetAllMaNV
+as
+begin
+Select ManV
+from NHANVIEN
+end
+
 
 Select * from PHONGBAN
 Select * from CHUYENMON

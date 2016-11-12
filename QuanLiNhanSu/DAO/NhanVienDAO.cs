@@ -57,7 +57,7 @@ namespace QuanLiNhanSu.DAO
                     cmd.Parameters.AddRange(NVparams);
                     return DataProvider.ExecuteNonQuery(cmd) > 0;
                 }
-                catch
+                catch(Exception ex)
                 {
                     return false;
                 }
@@ -98,7 +98,7 @@ namespace QuanLiNhanSu.DAO
 
                     return DataProvider.ExecuteNonQuery(cmd) > 0;
                 }
-                catch
+                catch(Exception ex)
                 {
                     return false;
                 }
@@ -128,9 +128,28 @@ namespace QuanLiNhanSu.DAO
                     cmd.Parameters.AddRange(NVparams);
                     return DataProvider.ExecuteNonQuery(cmd) > 0;
                 }
-                catch
+                catch (Exception ex)
                 {
                     return false;
+                }
+            }
+        }
+
+        public static DataTable GetAllMaNV()
+        {
+            using (con = new SqlConnection(strCon))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("spGetAllMaNV", con);
+                    con.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    return DataProvider.GetDataTable(cmd, con);
+                }
+                catch (Exception ex)
+                {
+                    return null;
                 }
             }
         }

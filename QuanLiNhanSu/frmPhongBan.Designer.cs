@@ -33,7 +33,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grpControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -46,23 +46,23 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtDiaChi);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtTenPhong);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Text = "Thông Tin Phòng Ban";
-            this.groupBox1.Controls.SetChildIndex(this.txtMa, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnThem, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnSua, 0);
-            this.groupBox1.Controls.SetChildIndex(this.label1, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnHuy, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnThoat, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnXoa, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnLuu, 0);
-            this.groupBox1.Controls.SetChildIndex(this.label2, 0);
-            this.groupBox1.Controls.SetChildIndex(this.txtTenPhong, 0);
-            this.groupBox1.Controls.SetChildIndex(this.label3, 0);
-            this.groupBox1.Controls.SetChildIndex(this.txtDiaChi, 0);
+            this.grpControl.Controls.Add(this.txtDiaChi);
+            this.grpControl.Controls.Add(this.label3);
+            this.grpControl.Controls.Add(this.txtTenPhong);
+            this.grpControl.Controls.Add(this.label2);
+            this.grpControl.Text = "Thông Tin Phòng Ban";
+            this.grpControl.Controls.SetChildIndex(this.txtMa, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnThem, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnSua, 0);
+            this.grpControl.Controls.SetChildIndex(this.label1, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnHuy, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnThoat, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnXoa, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnLuu, 0);
+            this.grpControl.Controls.SetChildIndex(this.label2, 0);
+            this.grpControl.Controls.SetChildIndex(this.txtTenPhong, 0);
+            this.grpControl.Controls.SetChildIndex(this.label3, 0);
+            this.grpControl.Controls.SetChildIndex(this.txtDiaChi, 0);
             // 
             // label2
             // 
@@ -110,8 +110,8 @@
             this.Name = "frmPhongBan";
             this.Text = "frmPhongBan";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpControl.ResumeLayout(false);
+            this.grpControl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -24,13 +24,8 @@ namespace QuanLiNhanSu
         protected override void OnAdd()
         {
             ReSetText();
-            ma = GetMaPB();
+            ma = GetMa("PB");
             txtMa.Text = ma;
-
-            btnLuu.Enabled = true;
-            btnHuy.Enabled = true;
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
 
             txtTenPhong.Focus();
         }
@@ -46,23 +41,18 @@ namespace QuanLiNhanSu
 
         protected override void OnCancel()
         {
-            btnXoa.Enabled = false;
-            btnLuu.Enabled = false;
-
             ReSetText();
         }
 
         protected override void OnLoad()
         {
-            btnLuu.Enabled = false;
-            btnXoa.Enabled = false;
-            btnHuy.Enabled = false;
-            btnSua.Enabled = false;
-            txtMa.Enabled = false;
+
 
             LoadPhongBan();
             ChangeHeaderName();
         }
+
+
 
         void ChangeHeaderName()
         {
@@ -73,7 +63,7 @@ namespace QuanLiNhanSu
 
         protected override void OnSave()
         {
-            if (String.IsNullOrWhiteSpace(txtTenPhong.Text) || String.IsNullOrWhiteSpace(txtDiaChi.Text))
+            if (!IsEmptyTextbox())
             {
                 MessageBox.Show("Mời bạn nhập đầy đủ thông tin");
                 return;
@@ -85,7 +75,6 @@ namespace QuanLiNhanSu
                 {
                     LoadPhongBan();
                     MessageBox.Show("Thêm thành công");
-                    btnLuu.Enabled = false;
                 }
                 else
                     MessageBox.Show("Thêm thất bại");
@@ -93,10 +82,11 @@ namespace QuanLiNhanSu
         }
 
 
+
         int lastIndex = -1;
         protected override void OnUpdate()
         {
-            if (String.IsNullOrWhiteSpace(txtTenPhong.Text) || String.IsNullOrWhiteSpace(txtDiaChi.Text))
+            if (!IsEmptyTextbox())
             {
                 MessageBox.Show("Mời bạn nhập đầy đủ thông tin");
                 return;
@@ -125,27 +115,11 @@ namespace QuanLiNhanSu
 
         protected override void OnDgvClick()
         {
-            btnXoa.Enabled = true;
-            btnSua.Enabled = true;
 
             DataGridViewRow dr = dgvDanhSach.SelectedRows[0];
             txtMa.Text = dr.Cells[0].Value.ToString();
             txtTenPhong.Text = dr.Cells[1].Value.ToString();
             txtDiaChi.Text = dr.Cells[2].Value.ToString();
-        }
-
-        private string GetMaPB()
-        {
-            string ma = "PB";
-            Random rd = new Random();
-            int i = rd.Next(1000);
-
-            if (i < 10)
-                ma = "PB00";
-            else if (i < 100)
-                ma = "PB0";
-
-            return (ma + i.ToString());
         }
 
         protected override void OnDelete()
@@ -167,40 +141,8 @@ namespace QuanLiNhanSu
             }
         }
 
-        // đổi sang kiểu chữ Hoa đầu cho tên
-        private string ChangeNameStyle(string name)
-        {
-            // loại bỏ khoảng trắng và Chuyển Style
-            // thạch mu ni => Thạch Mu Ni
-            name = RemoveWhiteSpace(name);
-
-            string[] arrStr = name.Split(' ');
-
-            string result = "";
-
-            for (int i = 0; i < arrStr.Length; i++)
-            {
-                arrStr[i] = arrStr[i].Substring(0, 1).ToUpper() + arrStr[i].Substring(1).ToLower() + " ";
-                result += arrStr[i];
-            }
-
-            return result;
-        }
-        private string RemoveWhiteSpace(string str)
-        {
-            string[] arrStr = str.Split(new char[] { ' ' }, 10, StringSplitOptions.RemoveEmptyEntries);
-            string strResult = "";
-            foreach (var item in arrStr)
-            {
-                strResult += item + " ";
-            }
-            return strResult.Trim();
-        }
-
-
         void SetFocusRow(int index)
         {
-
             if (index != -1)
                 dgvDanhSach.Rows[index].Selected = true;
         }

@@ -36,7 +36,7 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpControl = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMa = new System.Windows.Forms.TextBox();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -55,7 +55,7 @@
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.groupBox1.SuspendLayout();
+            this.grpControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSach)).BeginInit();
@@ -143,26 +143,26 @@
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // groupBox1
+            // grpControl
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(10)))), ((int)(((byte)(62)))));
-            this.groupBox1.Controls.Add(this.btnLuu);
-            this.groupBox1.Controls.Add(this.btnXoa);
-            this.groupBox1.Controls.Add(this.btnThoat);
-            this.groupBox1.Controls.Add(this.btnHuy);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnSua);
-            this.groupBox1.Controls.Add(this.btnThem);
-            this.groupBox1.Controls.Add(this.txtMa);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(394, 402);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông Tin";
+            this.grpControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(10)))), ((int)(((byte)(62)))));
+            this.grpControl.Controls.Add(this.btnLuu);
+            this.grpControl.Controls.Add(this.btnXoa);
+            this.grpControl.Controls.Add(this.btnThoat);
+            this.grpControl.Controls.Add(this.btnHuy);
+            this.grpControl.Controls.Add(this.label1);
+            this.grpControl.Controls.Add(this.btnSua);
+            this.grpControl.Controls.Add(this.btnThem);
+            this.grpControl.Controls.Add(this.txtMa);
+            this.grpControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grpControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.grpControl.ForeColor = System.Drawing.Color.White;
+            this.grpControl.Location = new System.Drawing.Point(0, 0);
+            this.grpControl.Name = "grpControl";
+            this.grpControl.Size = new System.Drawing.Size(394, 402);
+            this.grpControl.TabIndex = 0;
+            this.grpControl.TabStop = false;
+            this.grpControl.Text = "Thông Tin";
             // 
             // label1
             // 
@@ -186,7 +186,7 @@
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Location = new System.Drawing.Point(2, 2);
             this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.groupBox1);
+            this.splitContainerControl1.Panel1.Controls.Add(this.grpControl);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.dgvDanhSach);
             this.splitContainerControl1.Panel2.Text = "Panel2";
@@ -197,7 +197,8 @@
             // 
             // dgvDanhSach
             // 
-            this.dgvDanhSach.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvDanhSach.BackgroundColor = System.Drawing.Color.DimGray;
+            this.dgvDanhSach.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDanhSach.Location = new System.Drawing.Point(0, 0);
@@ -360,8 +361,8 @@
             this.Text = "frmBase";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBase_FormClosing);
             this.Load += new System.EventHandler(this.frmBase_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpControl.ResumeLayout(false);
+            this.grpControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSach)).EndInit();
@@ -400,6 +401,6 @@
         protected System.Windows.Forms.Label label1;
         protected System.Windows.Forms.TextBox txtMa;
         protected System.Windows.Forms.DataGridView dgvDanhSach;
-        protected System.Windows.Forms.GroupBox groupBox1;
+        protected System.Windows.Forms.GroupBox grpControl;
     }
 }

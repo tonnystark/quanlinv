@@ -36,5 +36,10 @@ namespace QuanLiNhanSu.BUS
             return NhanVienDAO.UpdateNhanVien(nv);
         }
 
+        public static DataTable GetAllMaNV()
+        {
+            return NhanVienDAO.GetAllMaNV();
+        }
+
     }
 }

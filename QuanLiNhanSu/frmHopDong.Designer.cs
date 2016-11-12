@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtMaNV = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtMoTa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpNgayBD = new System.Windows.Forms.DateTimePicker();
             this.dtpNgayKT = new System.Windows.Forms.DateTimePicker();
             this.cmbLoai = new System.Windows.Forms.ComboBox();
+            this.cmbNV = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grpControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -57,46 +57,38 @@
             // 
             this.txtMa.Size = new System.Drawing.Size(192, 27);
             // 
-            // groupBox1
+            // grpControl
             // 
-            this.groupBox1.Controls.Add(this.cmbLoai);
-            this.groupBox1.Controls.Add(this.dtpNgayKT);
-            this.groupBox1.Controls.Add(this.dtpNgayBD);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.txtMaNV);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.groupBox1.Text = "Thông tin hợp đồng";
-            this.groupBox1.Controls.SetChildIndex(this.txtMa, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnThem, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnSua, 0);
-            this.groupBox1.Controls.SetChildIndex(this.label1, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnHuy, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnThoat, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnXoa, 0);
-            this.groupBox1.Controls.SetChildIndex(this.btnLuu, 0);
-            this.groupBox1.Controls.SetChildIndex(this.txtMaNV, 0);
-            this.groupBox1.Controls.SetChildIndex(this.textBox5, 0);
-            this.groupBox1.Controls.SetChildIndex(this.label2, 0);
-            this.groupBox1.Controls.SetChildIndex(this.label3, 0);
-            this.groupBox1.Controls.SetChildIndex(this.label4, 0);
-            this.groupBox1.Controls.SetChildIndex(this.label5, 0);
-            this.groupBox1.Controls.SetChildIndex(this.label6, 0);
-            this.groupBox1.Controls.SetChildIndex(this.dtpNgayBD, 0);
-            this.groupBox1.Controls.SetChildIndex(this.dtpNgayKT, 0);
-            this.groupBox1.Controls.SetChildIndex(this.cmbLoai, 0);
-            // 
-            // txtMaNV
-            // 
-            this.txtMaNV.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtMaNV.Location = new System.Drawing.Point(148, 67);
-            this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(192, 27);
-            this.txtMaNV.TabIndex = 30;
+            this.grpControl.Controls.Add(this.cmbNV);
+            this.grpControl.Controls.Add(this.cmbLoai);
+            this.grpControl.Controls.Add(this.dtpNgayKT);
+            this.grpControl.Controls.Add(this.dtpNgayBD);
+            this.grpControl.Controls.Add(this.label6);
+            this.grpControl.Controls.Add(this.label5);
+            this.grpControl.Controls.Add(this.label4);
+            this.grpControl.Controls.Add(this.label3);
+            this.grpControl.Controls.Add(this.label2);
+            this.grpControl.Controls.Add(this.txtMoTa);
+            this.grpControl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.grpControl.Text = "Thông tin hợp đồng";
+            this.grpControl.Controls.SetChildIndex(this.txtMa, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnThem, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnSua, 0);
+            this.grpControl.Controls.SetChildIndex(this.label1, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnHuy, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnThoat, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnXoa, 0);
+            this.grpControl.Controls.SetChildIndex(this.btnLuu, 0);
+            this.grpControl.Controls.SetChildIndex(this.txtMoTa, 0);
+            this.grpControl.Controls.SetChildIndex(this.label2, 0);
+            this.grpControl.Controls.SetChildIndex(this.label3, 0);
+            this.grpControl.Controls.SetChildIndex(this.label4, 0);
+            this.grpControl.Controls.SetChildIndex(this.label5, 0);
+            this.grpControl.Controls.SetChildIndex(this.label6, 0);
+            this.grpControl.Controls.SetChildIndex(this.dtpNgayBD, 0);
+            this.grpControl.Controls.SetChildIndex(this.dtpNgayKT, 0);
+            this.grpControl.Controls.SetChildIndex(this.cmbLoai, 0);
+            this.grpControl.Controls.SetChildIndex(this.cmbNV, 0);
             // 
             // label2
             // 
@@ -138,13 +130,13 @@
             this.label5.TabIndex = 31;
             this.label5.Text = "Ngày kết thúc";
             // 
-            // textBox5
+            // txtMoTa
             // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.textBox5.Location = new System.Drawing.Point(148, 199);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(192, 27);
-            this.textBox5.TabIndex = 30;
+            this.txtMoTa.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtMoTa.Location = new System.Drawing.Point(148, 199);
+            this.txtMoTa.Name = "txtMoTa";
+            this.txtMoTa.Size = new System.Drawing.Size(192, 27);
+            this.txtMoTa.TabIndex = 4;
             // 
             // label6
             // 
@@ -162,7 +154,7 @@
             this.dtpNgayBD.Location = new System.Drawing.Point(148, 133);
             this.dtpNgayBD.Name = "dtpNgayBD";
             this.dtpNgayBD.Size = new System.Drawing.Size(192, 27);
-            this.dtpNgayBD.TabIndex = 32;
+            this.dtpNgayBD.TabIndex = 2;
             // 
             // dtpNgayKT
             // 
@@ -170,7 +162,8 @@
             this.dtpNgayKT.Location = new System.Drawing.Point(148, 166);
             this.dtpNgayKT.Name = "dtpNgayKT";
             this.dtpNgayKT.Size = new System.Drawing.Size(192, 27);
-            this.dtpNgayKT.TabIndex = 32;
+            this.dtpNgayKT.TabIndex = 3;
+            this.dtpNgayKT.ValueChanged += new System.EventHandler(this.dtpNgayKT_ValueChanged);
             // 
             // cmbLoai
             // 
@@ -179,7 +172,16 @@
             this.cmbLoai.Location = new System.Drawing.Point(148, 100);
             this.cmbLoai.Name = "cmbLoai";
             this.cmbLoai.Size = new System.Drawing.Size(192, 28);
-            this.cmbLoai.TabIndex = 33;
+            this.cmbLoai.TabIndex = 1;
+            // 
+            // cmbNV
+            // 
+            this.cmbNV.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbNV.FormattingEnabled = true;
+            this.cmbNV.Location = new System.Drawing.Point(148, 66);
+            this.cmbNV.Name = "cmbNV";
+            this.cmbNV.Size = new System.Drawing.Size(192, 28);
+            this.cmbNV.TabIndex = 1;
             // 
             // frmHopDong
             // 
@@ -193,8 +195,8 @@
             this.Name = "frmHopDong";
             this.Text = "frmHopDong";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpControl.ResumeLayout(false);
+            this.grpControl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,12 +207,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMaNV;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtMoTa;
         private System.Windows.Forms.ComboBox cmbLoai;
         private System.Windows.Forms.DateTimePicker dtpNgayKT;
         private System.Windows.Forms.DateTimePicker dtpNgayBD;
+        private System.Windows.Forms.ComboBox cmbNV;
     }
 }
